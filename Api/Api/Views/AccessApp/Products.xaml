@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Api.Views.AccessApp.Products">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <Grid RowSpacing="{OnPlatform iOS=25,Android=18}" BackgroundColor="#211224">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <!---->
+                    <RowDefinition Height="Auto"/>
+                    <!--1-->
+                    <RowDefinition Height="Auto"/>
+                    <!--2-->
+                    <RowDefinition Height="Auto"/>
+                    <!--3-->
+                    <RowDefinition Height="Auto"/>
+                    <!--4-->
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <StackLayout Grid.Row="1" VerticalOptions="Center" Orientation="Vertical" Margin="0,0,0,10">
+                    <Label
+                         Text="Welcome"
+                         TextColor="Aqua"
+                         FontAttributes="Bold"
+                         VerticalOptions="Center"
+                         FontSize="26"
+                         Margin="0,0,0,5"
+                         WidthRequest="300"
+                         />
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center" WidthRequest="{OnPlatform iOS=300,Android=300}" Orientation="Vertical"  >
+                    <Label
+                        Text="Codigo de Barras"
+                        FontSize="{OnPlatform Android=12}"
+                        TextColor="Aqua"
+                    />
+                    <Entry
+                        x:Name="txtBarcode"    
+                        Placeholder="Numero del Producto"
+                        PlaceholderColor="Aqua"
+                        TextColor="Aqua"
+                        Keyboard="Numeric"
+                        Text="{Binding NumeroTxt, Mode=TwoWay}"
+                        IsEnabled="{Binding IsEnabledTxt}"
+                        FontSize="{OnPlatform Android=12,iOS=12}"
+                    />
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" >
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="0">
+                        <Label
+                        Text="Nombre"
+                        FontSize="{OnPlatform Android=12}"
+                        TextColor="Aqua"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        />
+                        <Entry
+                            x:Name="txtNombre"
+                        Placeholder="Nombre del Producto"
+                        PlaceholderColor="Aqua"
+                        TextColor="Aqua"
+                        FontSize="{OnPlatform Android=12,iOS=12}"
+                        Text="{Binding NombreProTxt, Mode=TwoWay}"
+                        IsEnabled="{Binding IsEnabledTxt}"
+                        />
+                    </StackLayout>
+
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="4" HorizontalOptions="Center" Padding="0">
+                    <ActivityIndicator
+                       IsRunning="{Binding IsRunningTxt}"
+                       IsVisible="{Binding IsVisibleTxt}"
+                       Color="Aqua"
+                       Scale="0.8"
+                     
+                       />
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="5" HorizontalOptions="Center" Orientation="Horizontal" >
+                    <Button
+                            Grid.Column="1"
+                            Text="Code"
+                            TextColor="Black"
+                            Font="Montserrat-Medium.otf"
+                            FontSize="{OnPlatform Android=12}"
+                            BackgroundColor="Aqua"
+                            CornerRadius="5"
+                            HorizontalOptions="Start"
+                            WidthRequest="150"
+                            HeightRequest="50"
+                            IsEnabled="{Binding IsEnabledTxt}"
+                            Clicked="Button_Clicked"
+                    />
+                    <Button
+                            Grid.Column="2"
+                            Text="Save"
+                            TextColor="Black"
+                            HorizontalOptions="End"
+                            FontSize="{OnPlatform Android=12,iOS=12}"
+                            BackgroundColor="Aqua"
+                            WidthRequest="150"
+                            HeightRequest="50"
+                            Command="{Binding ProductCommand}"
+                            IsEnabled="{Binding IsEnabledTxt, Mode=TwoWay}"
+                            
+                            />
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

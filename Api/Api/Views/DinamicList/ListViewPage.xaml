@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Api.Views.DinamicList.ListViewPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     BackgroundColor="#211224">
+            <ListView ItemsSource="{Binding ListViewSourceTxt}"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshingTxt}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Numero}"
+                                   Grid.Row="0" Grid.Column="1"
+                                   TextColor="Aqua"/>
+                                <Label Text="{Binding NombrePro}"
+                                   Grid.Row="0" Grid.Column="2"
+                                   TextColor="Aqua"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
